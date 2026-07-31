@@ -1,0 +1,159 @@
+:root {
+  color-scheme: light;
+  --bg: #f4f0e8;
+  --panel: #fffcf6;
+  --ink: #1c1917;
+  --line: #3f3f46;
+  --sea: #dbeafe;
+  --ship: #d6d3d1;
+  --hit: #dc2626;
+  --miss: #0284c7;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 10% 10%, #fef3c7 0 18%, transparent 19%),
+    radial-gradient(circle at 90% 15%, #d1fae5 0 20%, transparent 21%),
+    linear-gradient(160deg, #faf7ef, var(--bg));
+}
+
+.app-shell {
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 1rem;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+h1,
+h2 {
+  margin: 0;
+}
+
+button {
+  border: 1px solid var(--line);
+  background: var(--panel);
+  color: var(--ink);
+  border-radius: 10px;
+  padding: 0.55rem 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.status {
+  font-weight: 700;
+}
+
+.error {
+  color: #b91c1c;
+  font-weight: 700;
+}
+
+.fleet-strip {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 0.6rem;
+  margin-bottom: 1rem;
+}
+
+.fleet-ship {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--panel);
+  padding: 0.5rem 0.65rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+  font-size: 0.92rem;
+}
+
+.fleet-ship.sunk {
+  color: var(--hit);
+  border-color: var(--hit);
+}
+
+.boards-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.board-card {
+  border: 2px solid var(--line);
+  border-radius: 16px;
+  padding: 0.8rem;
+  background: var(--panel);
+}
+
+.board-card h2 {
+  margin-bottom: 0.8rem;
+}
+
+.board-grid {
+  display: grid;
+  grid-template-columns: repeat(10, minmax(20px, 1fr));
+  gap: 2px;
+}
+
+.board-cell {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 3px;
+  border: 1px solid var(--line);
+  background: white;
+  font-size: 0.85rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+}
+
+.board-cell.ship {
+  background: var(--ship);
+}
+
+.board-cell.hit {
+  color: var(--hit);
+  font-weight: 900;
+}
+
+.board-cell.miss {
+  color: var(--miss);
+  font-weight: 900;
+}
+
+.log-card {
+  margin-top: 1rem;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--panel);
+  padding: 0.8rem;
+}
+
+.log-card ul {
+  margin: 0.5rem 0 0;
+  padding-left: 1.25rem;
+}
+
+@media (min-width: 800px) {
+  .boards-layout {
+    grid-template-columns: 1fr 1fr;
+  }
+}
